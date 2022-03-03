@@ -18,7 +18,7 @@ contract Lottery {
         require(msg.value == lotteryAmount,"Minimum Amount not met");
         players.push(payable(msg.sender));
         collectedAmount += msg.value;
-        noOfPlayer++;
+        noOfPlayer++;//just edit
     }
     function currentPoolBalance() view public returns(uint){
         return address(this).balance;
