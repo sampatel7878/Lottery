@@ -21,6 +21,15 @@ contract Lottery {
         collectedAmount += msg.value;
         noOfPlayer++;//just edit
     }
+
+    function sendEth()public payable{
+        require(block.timestamp <= deadline,"Deadline has passed");
+        require(msg.value == lotteryAmount,"Minimum Amount not met");
+        players.push(payable(msg.sender));
+        collectedAmount += msg.value;
+        noOfPlayer++;//just edit
+    }
+    
     function currentPoolBalance() view public returns(uint){
         return address(this).balance;
     }
